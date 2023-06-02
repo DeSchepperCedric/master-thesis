@@ -1,0 +1,56 @@
+\section{Experimental Design}\label{sec:experiment}
+
+For this case study, the data set to be used is provided by the \acrshort{fti} and \acrshort{fwet} faculties of the \acrfull{ua}. The data consists of the exam information for the January and June exam period of 2021 and the schedule used. Even though the two faculties compose their own schedules, the problems are not independent. A section of the rooms are available for both faculties. As a consequence, the schedule has to be generated together and only then be split up. Otherwise a shared exam room could be double booked. The statistics for the data sets provided can be seen in Table \ref{tab:data_set_sem1} and \ref{tab:data_set_sem2}. The fact that the scheduling problem for \acrshort{fti} and \acrshort{fwet} is not independent can be seen here as well. The statistics for \acrshort{fti} and \acrshort{fwet} combined do not equal the sum for the statistics of the faculties separated. The amount of time slots can be calculated as follows:
+\begin{equation}
+    \text{\# of time slots} = \text{\# Rooms} \times \text{\# Periods} \times \text{\# Exam times}  
+\end{equation}
+with there being two exam times, namely a morning and afternoon exam. For the January and June schedule there are respectively 20 and 24 periods.
+\begin{table}[h]
+	\caption{Data set statistics for January 2021}
+	\label{tab:data_set_sem1}
+	\centering
+	\begin{tabular}{l c c c }
+		\hline
+		& \textbf{\acrshort{fti}} & \textbf{\acrshort{fwet}} & \textbf{\acrshort{fti}+\acrshort{fwet}} \\ \hline
+		Students & 770 & 1041 & 1811 \\
+		Exams & 185 & 360 & 536 \\
+	    Rooms & 15 & 45 & 54 \\
+        Time slots & 600 & 1800 & 2160 \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\caption{Data set statistics for June 2021}
+	\label{tab:data_set_sem2}
+	\centering
+	\begin{tabular}{l c c c }
+		\hline
+		& \textbf{\acrshort{fti}} & \textbf{\acrshort{fwet}} & \textbf{\acrshort{fti}+\acrshort{fwet}} \\ \hline
+		Students & 782 & 1071 & 1852 \\
+		Exams & 169 & 342 & 491 \\
+	    Rooms & 15 & 45 & 54 \\
+        Time slots & 720 & 2160 & 2592 \\ \hline
+	\end{tabular}
+\end{table}
+
+%Tabu search has a limited amount of hyperparameters compared to other optimisation methods. This aids in the parameter tuning process. 
+The hyperparameters  available for the different versions can be seen in Table \ref{tab:possible_parameters}.With MAX\_ITER\_OPTIMISATION and MAX\_ITER\_INITIALISATION defining the duration of the algorithm run time, the main variables to set are the weights. Unlike P\_INITIALISATION being a single value, P\_OPTIMISATION is a list with the value at index $i$ containing the penalty for two exams at distance $i$. If there is no value at index $i$, the penalty is equal to 0.
+
+\begin{table}[h]
+	\caption{Tabu search hyperparameters}
+	\label{tab:possible_parameters}
+	\centering
+	\begin{tabular}{l c c}
+		\hline
+		& \textbf{Parameter} & \textbf{Description}  \\ \hline
+        \textbf{All versions} & &\\ 
+    
+		& P\_INITIALISATION & weight of conflicts during initialisation phase \\
+        & P\_OPTIMISATION  & weight of distance between exams\\
+	    & MAX\_ITER\_INITIALISATION & max amount of iterations during initialisation phase \\
+        & MAX\_ITER\_OPTIMISATION & max amount of iterations during optimisation phase\\ 
+        \textbf{Version 3} & &\\ 
+        & MAX\_MOVES & amount of moves to evaluate each iterations \\ 
+        \hline
+	\end{tabular}
+\end{table}
