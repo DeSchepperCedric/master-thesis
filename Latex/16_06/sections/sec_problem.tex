@@ -1,0 +1,57 @@
+% !TEX root = ../CedricDe Schepper2023_Thesis.tex
+
+\section{Problem Definition}\label{sec:problem}
+
+\subsection{Educational timetabling}
+Educational timetabling problems generally can be divided into three distinct problems, each with their own set of characteristics \cite{schaerf1996, kingston2013}:
+
+\begin{description}
+   \item [High-School Timetabling] \hfill \\ The creation of weekly schedules for all the classes of a high-school. This problem focuses on assigning classes and teachers to time slots such that no class or teacher has more than one lecture at the same time and a teacher has the needed amount of time slots to teach all lectures. Classes are considered a fixed set of students, that remains the same for each lecture. This makes that two classes will never have common students. Moreover, room availability is often disregarded by assuming all classes have their own room.
+   \item [University Course Timetabling] \hfill \\ The creation of weekly schedules for all courses given at universities. Different from high-school timetabling, universities can have common students between courses. This requires student enrolment to be taken into account when creating course schedules. Additionally, room availability and capacity become an important factor to consider.
+   \item [University Examination Timetabling] \hfill \\ The creation of a schedule for the exams given for university courses. While very similar to university course timetabling, the main difference lies in the constraints determining the feasibility and quality of the timetable. Most importantly, conflicts have a higher impact and distribution of exams has to be considered.
+\end{description}
+
+The timetabling problem, as experienced by the University of Antwerp, falls into the category of university examination timetabling. 
+
+\subsection{Problem complexity}
+
+Exam timetabling has been proven to be NP-complete \cite{even1976}, meaning that there is no known algorithm that is able to find an optimal solution in polynomial time. When a problem can be reduced to another NP-complete problem, that problem is considered to be NP-complete as well. This means that the NP-completeness can be explained intuitively by reducing it to the graph colouring problem, which has been proven to be NP-complete \cite{karp1972}. This is done by viewing periods as the colours and exams as nodes. Two nodes are connected by an edge whenever the corresponding exams have a common student. A solution is considered feasible when no connected edges are assigned the same colour and thus period. 
+
+Because of the NP-completeness, finding an optimal solution is generally not possible for large problem instances. It follows that approximate methods such as heuristics have to be used to tackle this problem \cite{farreny1986}. While heuristics do not guarantee optimal solutions, they attempt to generate good solutions within a reasonable amount of time.
+
+
+
+\subsection{Constraints and data requirements}
+
+For this thesis, we study the generation of examination timetables for two faculties, namely the Faculty of Applied Engineering and the Faculty of Science. From discussions with the parties responsible for scheduling the exams, it quickly becomes clear that this is a complex problem due to the number of students, courses, and exam rooms to be considered. In order to define the feasibility and quality of a solution, the hard and soft constraints characterising the problem, must be determined. The following hard constraints used to validate the feasibility of a solution were defined together with the faculties' administration:
+
+\begin{itemize}
+    \item Constraint 1: Each exam is scheduled to a time slot.
+    \item Constraint 2: Each exam is scheduled to a room of the correct type. Every exam requires a specific type of room that must be respected. Such room types can includes seminar rooms, auditoriums, computer rooms, and practicums.
+    \item Constraint 3: The number of students enrolled in an exam cannot exceed the capacity of the scheduled room.
+    \item Constraint 4: Each exam is scheduled to a room available to the faculty. All faculties have access to their own set of rooms, with overlap between the faculties possible.
+    \item Constraint 5: No student must be scheduled to more than 1 exam on the same day.
+\end{itemize}
+
+Additionally, the soft constraints, used to determine the quality of the solution, are:
+\begin{itemize}
+    \item Constraint 6: The number of days between exams must be maximised.
+\end{itemize}
+Constraint 1 to 5 are considered to be hard constraints with constraint 6 being the sole soft constraint. Formally, this means that the first five constraints must be satisfied in order to provide a feasible solution, with constraint 6 being taken into account to improve it. However, constraint 5 is considered to be a special case because of the notion of a ‘model track’ in Belgian universities.
+
+Belgian universities provide students with a pre-configured course schedule they can use to graduate within the minimum time duration. This schedule takes into account the prerequisites needed to enrol in every course. This results in large groups of students to follow the same courses. The university administration prioritises creating an optimal exam distribution for these students, while also attempting to take into account the custom tracks as much as possible. This means that constraint 5 can be relaxed to only apply to students following the model track. In further sections, we refer to the two constraint variations as the following:
+\begin{itemize}
+    \item Constraint 5a: No student must be scheduled to more than 1 exam on the same day.
+    \item Constraint 5b: No student following the model track must be scheduled to more than 1 exam on the same day.
+
+\end{itemize}
+
+In order to solve this scheduling problem, some data must be provided or generated:
+
+\begin{description}
+   \item [Students] \hfill \\ The set of all students that are enrolled in exams and will impact the timetabling.
+   \item[Exams] \hfill \\ The set of all exams that must be scheduled. Every exam has its own set of students that are enrolled. This allows us to verify if two exams have common students between them and will create a conflict if they occur on the same day. Additionally, an exam belongs to a faculty and is of a certain type. Every exam type requires an allowed room type. For example, computer exams must be held in a computer room.
+   \item[Rooms] \hfill \\The set of rooms present for examinations. Each room has a room type, a student capacity and a list of faculties it is available for. An exam can only be scheduled in a room if the capacity is sufficient, the type of exam is possible within the room, and the room is available to the faculty to which the exam belongs.
+    \item[Time slots] \hfill \\ The set of all time slots that can be used to schedule exams. We consider a time slot to be determined by its date, exam time, and room. The exam time determines the amount of times a room can be used per day.
+    \item[Periods] \hfill \\ Set of periods, one for each date within the examination schedule. Each period contains all time slots of that date. By checking all students that are enrolled within exams scheduled to a time slot of a period, the amount of constraint 5 violations can be calculated. These periods can be generated by adding a time slot for every room and time combination. The amount of time slots in a period corresponds to $|\text{Rooms}| * |\text{Exam Times}|$.
+\end{description}

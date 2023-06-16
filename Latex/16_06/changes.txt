@@ -1,0 +1,17 @@
+sectie 1: introductie aangepast met research questions
+
+Sectie 3: Surveys toegevoegd als bron van de verschillende soorten optimisation methods en opzoekwerk uitgelegd.
+
+Sectie 3.6: comparison toegevoegd. Die tabel opstellen is gebeurd op basis van indrukken na literatuur studie. Puur oordelen op basis van performance is moeilijk omdat veel papers elkaar tegenspreken. Vind het moeilijk om dit dus toe te voegen.
+
+Sectie 4: introductie aangepast wegens merendeel verplaatst naar sectie 3.5
+
+Sectie 5.1: 3 sheets beter uitgelegd
+
+sectie 5.2: betere uitleg waarom ik deze metrics kies
+
+sectie 5.3: sectie hernoemd
+
+sectie 6.3.3: sectie afgezonderd van 6.3.2 en aangepast
+
+Sectie 8: conclusie aangepast met feedback
