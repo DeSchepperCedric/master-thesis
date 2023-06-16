@@ -1,0 +1,26 @@
+
+=============================================================
+Je selecteert nu 3 voorbeeldroosters (p 25)
+Waarom drie en waarom geen 5 - 10 - 100? En waarom net die drie?
+=============================================================
+Mijn uitleg hier was slecht verwoord en heb dit dus ook aangepast. De Excel data die ik heb doorgestuurd gekregen bevat voor elke examenrooster 5 excel sheets waarmee ze een bepaalde rooster visualiseren. Ik selecteer de 3 meeste belangrijke sheets om na te bootsen voor mijn output aangezien de overige 2 geen nieuwe informatie tonen. Deze sheets gaan dus niet over het aantal examenroosters dat ik beschouw.
+
+Qua data set heb ik er eigenlijk 4. Voor zowel de examenperiode in januari als in juni heb ik de gegevens voor FWET en FTI. De rooster voor de twee faculteiten moet echter samen opgesteld worden door overlappende lokalen wat er dus voor zorgt dat er twee grote data sets zijn: een januari en juni data set.
+
+
+
+
+=============================================================
+Misschien. Veel zal hier afhangen van de verdediging. In hoeverre heb je zelfstandig hoofdstuk 3 met al zijn referenties uitgewerkt? Hoveel was input van Joey? Ook de interviews (requirements) die je gecapteerd heb in je gesprekken met Annick, Heidi, Annelies zijn niet gestaafd. Ook hier had ik graag hun opinie gehoord
+=============================================================
+Hoe related works opgezocht, snowballing
+
+systemic literature review: cited by/cites --> oppassen met claimed dat je alles gezien hebt!!!
+
+Annick,...:
+
+
+meer process uitleggen: details in mail,..
+TODO
+results: aparte sectie voor feedback van annick,...
+conclusie: hun conclusie duidelijk beschrijven

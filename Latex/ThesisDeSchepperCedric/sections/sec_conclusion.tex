@@ -1,0 +1,40 @@
+% !TEX root = ../CedricDe Schepper2023_Thesis.tex
+
+\section{Conclusions}\label{sec:conclusion}
+
+ In this thesis, we investigated how an implementation of the Tabu Search method compares to manual generated examination timetables for the University of Antwerp. Due to constraints such as the requirement for different exam room types and the notion of model track students, we were unable to copy existing implementations that proved successful in recent benchmarks. 
+
+ The analyses performed show that the Tabu Search implementations were able to generate solutions without any exam conflicts. In order to provide a better final exam distribution, we successfully improved the Tabu Search implementation, proposed by Alvarez-Valdes et al.\cite{alvarez1997}. These changes reduced the percentage of occurrences where a student has two or fewer days between exams. For both the January and June data set, this distribution improved from 33.3\% to 27.3\%, and from 23.9\% to 15.2\%, respectively.
+ 
+When comparing the generated solutions to the reference solutions, the proposed implementation was able to reduce the amount of exam conflicts from nearly 3\% to zero or close to zero. However, the change in objective function was not able to effectively change constraint 5 into a soft constraint, in order to improve the overall distribution. For the January 2021 data set, 27.9\% of the time a student had two or fewer days between exams, while the reference solution was superior with only 12\%. The same was visible for June 2021, with 15.4\% versus 11.9\% for the reference solution. From feedback by the university's administration, we gathered that the solution does not succeed in providing the wanted distribution. However, they did conclude that it can act as an initial baseline.
+
+In conclusion, we laid the foundation for further research by formalising the requirements enforced by the university's administration into hard and soft constraints. Additionally, we provided an algorithm, that is capable of creating timetables without exam conflicts, that can then be improved manually. This combination would reduce the amount of time spent while keeping the flexibility observed during manual creation.
+
+Based on the scheduling problem defined and results obtained, future research could investigate the difference in performance when implementing alternative search methods. From the comparison made in Table \ref{tab:comparison_algos}, we recommend the implementation of either a Great Deluge or Hyper-heuristics algorithm. Additionally, the search problem can be further expanded by increasing the amount of constraints present. For example, by adding constraints unique to certain exams, such as an exam requesting a specific room.
+
+
+
+% \begin{itemize}
+% \item \textbf{Summary of Results.} 
+%    In a paper/thesis, we probably have many pages in previous sections presenting results. 
+%    Now in the conclusion, it is time to put the most important results here for the reader. 
+%    Especially research with measurable results, we highlight the numbers here. 
+% \item \textbf{Main Findings / Conclusions.} 
+%    Many times, we have a result but based on its number we can draw a conclusion or formulate a finding on top of it. 
+%    Even if it was previous discussed in an earlier section, we need to re-state here. 
+% \item \textbf{Contributions.} 
+%    If we presented/discussed the main contributions of this research in the introduction, then we need to do again in the conclusion.
+%    Do not repeat verbatim what was written in previous sections. 
+%    In the conclusion, we expect contributions to be more detailed and linked to the results/findings when possible.
+% \end{itemize}
+
+% Avoid generic conclusion sentences that could be applied to anything. 
+% For example, "Our technique showed good results which were beneficial to answer our research questions. 
+% Our work can be used by other researchers to better understand our domain."
+% Instead, go for more specific detailed results.
+% For example, "Our technique showed a precision of 75\% which was 15\% higher than the baseline comparison. 
+% Based on this we can see that ..."
+
+% The final paragraph (or paragraphs) of the conclusion is about future research. 
+% We can create a separate subsection for it if there are multiple paragraphs dedicated to future work. 
+% Just be aware, it is not a good sign if future research content is longer than what we wrote for the previous paragraphs in the conclusion.

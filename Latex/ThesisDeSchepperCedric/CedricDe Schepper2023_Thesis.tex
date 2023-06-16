@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{arxiv}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+ \usepackage{backref} % back references from the bibliography
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{amsmath}
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{cite} % organizefs citations
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[ruled, linesnumbered]{algorithm2e}
+\usepackage{cleveref}
+\usepackage{longtable}
+\usepackage{algorithm2e}
+\usepackage[acronym]{glossaries}
+\usepackage{enumitem}
+
+\usepackage{ textcomp }
+\usepackage{scalerel,amssymb}
+\def\mcirc{\mathbin{\scalerel*{\bigcirc}{t}}}
+\def\msquare{\mathord{\scalerel*{\Box}{gX}}}
+
+
+\makeglossaries
+
+%\usepackage[disable]{todonotes} %% Uncomment this line and comment the next one to make the notes invisible
+\usepackage{todonotes}
+\newcommand{\comment}[1]{\todo[color=orange!40, inline]{\footnotesize{#1}}}
+\newcommand{\student}[1]{\todo[color=green!40, inline]{\footnotesize{Student: #1}}}
+\newcommand{\serge}[1]{\todo[color=purple!40, inline]{\footnotesize{Serge: #1}}}
+
+
+
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%t
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=black,
+%
+%    pdftitle={XXX},    % title
+%    pdfauthor={XXX},     % author
+%    pdfsubject={XXX},   % subject of the document
+%    pdfcreator={PDF LaTex},   % creator of the document
+}
+\backrefsetup{verbose=false,hyperpageref}
+
+
+\title{Tabu Search for optimising the timetables of university exams}
+\author{De Schepper Cedric}
+\supervisor{Principal Advisor: Prof. Dr. Serge Demeyer}
+\assistant{Assistant Advisor: Joey De Pauw}
+\date{\today}
+
+
+\begin{document}
+% TODO change to submission month and year
+
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+
+\newpage
+\input{sections/abstract_english}
+
+\newpage
+\input{sections/abstract_dutch}
+
+\newpage
+\input{sections/acknowledgments}
+
+\newpage
+\input{sections/sec_introduction}
+
+\newpage
+\input{sections/sec_problem}
+
+\newpage
+\input{sections/sec_relatedwork}
+
+%\newpage
+%\input{sections/sec_background}
+
+\newpage
+\input{sections/sec_method}
+
+\newpage
+\input{sections/sec_experiment}
+
+\newpage
+\input{sections/sec_results}
+
+\newpage
+\input{sections/sec_threats}
+
+\newpage
+\input{sections/sec_conclusion}
+
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{references}
+\addcontentsline{toc}{section}{References}
+
+\end{document}
